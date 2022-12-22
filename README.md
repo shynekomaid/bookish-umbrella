@@ -10,7 +10,7 @@ A telegram userbot to automatically comment in channel on new posts.
 
 Short install guide:
 
-0. I recomend create new telegram account. Create it without 2FA.
+0. I recommend create new telegram account. Create it without 2FA.
 1. Install python 3.10.1
 2. Install pip
 3. Install requirements:
