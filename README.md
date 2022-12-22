@@ -1,8 +1,9 @@
-# Bookish-umbrella
+# Bookish umbrella
 Fast-comment telegram bot
 
 > WARNING: The software is provided by "AS IS". If the use of the software causes your computer to break down, you catch ban on Telegram, falls off your dick or opens a portal with hellish creatures, the developer is not responsible for it.
 
+> This project is just a proof-of-concept. Do not use for evil.
 
 A telegram userbot to automatically comment in channel on new posts.
 
