@@ -1,0 +1,9 @@
+{
+    "ENGLISH": {
+        "NEW_POST": "New post on {}",
+        "COMMENTED": "Commented on {}",
+        "FLOOD_WAIT_ERROR": "Flood Wait!\nSleeping for {} .",
+        "STARTED_MSG": "Started!",
+        "ERROR_WHILE_POSTING": "ERROR WHILE POSTING: "
+    }
+}
