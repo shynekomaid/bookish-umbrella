@@ -1,40 +1,28 @@
-from telethon import *
-from telethon.sessions import StringSession
 import random
 import json
 import time
+from telethon import TelegramClient, events, errors
+from telethon.sessions import StringSession
 
-file_1 = open('config.json').read()
-config = json.loads(file_1)
-file_2 = open('lang.json', encoding='utf-8').read()
-lang = json.loads(file_2)
+def load_config(file_path):
+    with open(file_path) as file:
+        return json.load(file)
+
+config = load_config('config.json')
+lang = load_config('lang.json')
 
 API_ID = config['API_ID']
 API_HASH = config['API_HASH']
 STRING_SESSION = config['STRING_SESSION']
 
-client = TelegramClient(StringSession(STRING_SESSION),
-                        API_ID, API_HASH).start()
-
+client = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH).start()
 client.parse_mode = 'html'
 
 COMMENT_TEXT = config['COMMENT_TEXT']
+LANG = config['LANGUAGE']
+lang = lang[LANG]
 
-_lang = config['LANGUAGE']
-lang = lang[_lang]
-
-
-def CONFIG_FUNC():
-    file = open('config.json')
-    read = file.read()
-    j = json.loads(read)
-    file.close()
-    return j
-
-
-global CHANNEL_ID
-CHANNEL_ID = CONFIG_FUNC()['CHANNEL_ID']
-
+CHANNEL_ID = config['CHANNEL_ID']
 
 @client.on(events.NewMessage)
 async def auto_comment(event):
@@ -48,7 +36,7 @@ async def auto_comment(event):
         print(lang['FLOOD_WAIT_ERROR'].format(e.seconds))
         time.sleep(e.seconds)
     except Exception as e:
-        print(lang['ERROR_WHILE_POSTING'] + '\n' + e)
+        print(lang['ERROR_WHILE_POSTING'] + '\n' + str(e))
 
 print(lang['STARTED_MSG'])
 
