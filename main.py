@@ -52,7 +52,7 @@ async def auto_comment(event):
         print(lang['FLOOD_WAIT_ERROR'].format(flood_wait_duration.seconds))
         time.sleep(flood_wait_duration.seconds)
     except Exception as unknown_error:
-        print(lang['ERROR_WHILE_POSTING'] + '\n' + str(e))
+        print(lang['ERROR_WHILE_POSTING'] + '\n' + str(unknown_error))
 
 print(lang['STARTED_MSG'])
 
